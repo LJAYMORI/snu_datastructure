@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "binarytree.h"
+#include "./binarytree.h"
 #include "binarysearchtree.h"
 #include "AVLrebalance.h"
 

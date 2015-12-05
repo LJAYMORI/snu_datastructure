@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "BinaryTree3.h"
+#include "./binaytree.h"
 
 // LL 회전
 BTreeNode * RotateLL(BTreeNode * bst)

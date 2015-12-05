@@ -1,7 +1,7 @@
 #ifndef __AL_GRAPH__
 #define __AL_GRAPH__
 
-#include "doublylinkedlist.h"
+#include "./list/linkedlist/doublylinkedlist/dlinkedlist.h"
 
 // 정점의 이름들을 상수화
 enum {A, B, C, D, E, F, G, H, I, J};

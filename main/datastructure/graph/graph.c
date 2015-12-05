@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "graph.h"
-#include "doublylinkedlist.h"
+#include "./list/linkedlist/doublylinkedlist/dlinkedlist.h"
 
 int WhoIsPrecede(int data1, int data2);
 

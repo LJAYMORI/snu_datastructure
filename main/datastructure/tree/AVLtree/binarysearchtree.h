@@ -1,7 +1,7 @@
 #ifndef __BINARY_SEARCH_TREE3_H__
 #define __BINARY_SEARCH_TREE3_H__
 
-#include "binarytree.h"
+#include "./binarytree.h"
 
 typedef BTData	BSTData;
 
