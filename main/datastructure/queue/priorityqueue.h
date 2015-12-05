@@ -1,7 +1,7 @@
 #ifndef __PRIORITY_QUEUE_H__
 #define __PRIORITY_QUEUE_H__
 
-#include "./heap/heap.h"
+#include "../heap/heap.h"
 
 typedef Heap PQueue;
 typedef HData PQData;
