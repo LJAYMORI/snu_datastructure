@@ -18,7 +18,7 @@ typedef struct _ual
 {
 	int numV;
 	int numE;
-	List * adjList;
+	List *adjArray;
 	int * visitInfo;
 	PQueue pqueue;    // 간선의 가중치 정보 저장
 } ALGraph;
