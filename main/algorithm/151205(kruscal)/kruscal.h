@@ -1,10 +1,15 @@
 #ifndef __KRUSKAL__
 #define __KRUSKAL__
 
-#include "DLinkedList.h"
-#include "PriorityQueue.h"
+#include "../../datastructure/list/linkedlist/doublylinkedlist/dlinkedlist.h"
+#include "../../datastructure/queue/priorityqueue.h"
 
-#include "ALEdge.h"
+typedef struct _edge
+{
+	int v1;
+	int v2;
+	int weight;   // 가중치
+} Edge;
 
 // 정점의 이름들을 상수화
 enum {A, B, C, D, E, F, G, H, I, J};
