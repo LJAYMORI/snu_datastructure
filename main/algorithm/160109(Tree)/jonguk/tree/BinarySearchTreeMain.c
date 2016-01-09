@@ -7,7 +7,6 @@ int main(void)
     BTreeNode * sNode;
 
     BSTMakeAndInit(&bstRoot);
-    printf("%d\n", bstRoot->data);
 
     BSTInsert(&bstRoot, 9);
     BSTInsert(&bstRoot, 1);

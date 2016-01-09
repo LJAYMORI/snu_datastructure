@@ -7,7 +7,7 @@ typedef BTData BSTData;
 
 // 이진 탐색 트리의 생성 및 초기화
 void BSTMakeAndInit(BTreeNode ** pRoot) {
-    BTreeNode *node = (BTreeNode *) malloc(sizeof(BTreeNode));
+    BTreeNode *node = MakeBTreeNode();
     node->right = NULL;
     node->left = NULL;
 
