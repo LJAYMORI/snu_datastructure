@@ -6,7 +6,10 @@
 #include "binarytree.h"
 
 BTreeNode * MakeBTreeNode(void){
-    return (BTreeNode*)malloc(sizeof(BTreeNode));
+    BTreeNode* bTreeNode = (BTreeNode *)malloc(sizeof(BTreeNode));
+    bTreeNode->right = NULL;
+    bTreeNode->right = NULL;
+    return bTreeNode;
 }
 
 BTData GetData(BTreeNode * bt){
@@ -31,4 +34,26 @@ void MakeLeftSubTree(BTreeNode * main, BTreeNode * sub){
 
 void MakeRightSubTree(BTreeNode * main, BTreeNode * sub){
     main->right = sub;
+}
+
+void PreorderTraverse(BTreeNode * bt, VisitFuncPtr action){
+    if(bt != NULL) {
+        action(bt->data);
+        PreorderTraverse(bt->left, action);
+        PreorderTraverse(bt->right, action);
+    }
+}
+void InorderTraverse(BTreeNode * bt, VisitFuncPtr action){
+    if(bt != NULL) {
+        InorderTraverse(bt->left, action);
+        action(bt->data);
+        InorderTraverse(bt->right, action);
+    }
+}
+void PostorderTraverse(BTreeNode * bt, VisitFuncPtr action){
+    if(bt != NULL) {
+        PostorderTraverse(bt->left, action);
+        PostorderTraverse(bt->right, action);
+        action(bt->data);
+    }
 }
