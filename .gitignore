@@ -19,6 +19,7 @@
 *.so
 *.so.*
 *.dylib
+*/CMakeLists.txt
 
 # Executables
 *.exe
