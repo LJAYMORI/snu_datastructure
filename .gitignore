@@ -19,7 +19,6 @@
 *.so
 *.so.*
 *.dylib
-*/CMakeLists.txt
 
 # Executables
 *.exe
@@ -37,3 +36,4 @@
 .idea/snu_datastructure.iml
 .idea/vcs.xml
 .idea/workspace.xml
+CMakeLists.txt
