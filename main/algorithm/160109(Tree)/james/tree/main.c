@@ -1,29 +1,44 @@
-#include<stdio.h>
-#include "BinaryTree.h"
+#include <stdio.h>
+#include "BinarySearchTree.h"
 
 int main(void)
 {
-	BTreeNode * bt1 = MakeBTreeNode();
-	BTreeNode * bt2 = MakeBTreeNode();
-	BTreeNode * bt3 = MakeBTreeNode();
-	BTreeNode * bt4 = MakeBTreeNode();
+	BTreeNode * bstRoot;
+	BTreeNode * sNode;
 
-	SetData(bt1, 1);
-	SetData(bt2, 2);
-	SetData(bt3, 3);
-	SetData(bt4, 4);
+	BSTMakeAndInit(&bstRoot);
 
-	MakeLeftSubTree(bt1, bt2);
-	MakeRightSubTree(bt1, bt3);
-	MakeLeftSubTree(bt2, bt4);
+	BSTInsert(&bstRoot, 9);
+	BSTInsert(&bstRoot, 1);
+	BSTInsert(&bstRoot, 6);
+	BSTInsert(&bstRoot, 2);
+	BSTInsert(&bstRoot, 8);
+	BSTInsert(&bstRoot, 3);
+	BSTInsert(&bstRoot, 5);
 
-	printf("%d \n", GetData(GetLeftSubTree(bt1)));
+	sNode = BSTSearch(bstRoot, 1);
+	if (sNode == NULL)
+		printf("탐색 실패 \n");
+	else
+		printf("탐색에 성공한 키의 값: %d \n", BSTGetNodeData(sNode));
 
-	printf("%d \n", GetData(GetLeftSubTree(GetLeftSubTree(bt1))));
+	sNode = BSTSearch(bstRoot, 4);
+	if (sNode == NULL)
+		printf("탐색 실패 \n");
+	else
+		printf("탐색에 성공한 키의 값: %d \n", BSTGetNodeData(sNode));
+
+	sNode = BSTSearch(bstRoot, 6);
+	if (sNode == NULL)
+		printf("탐색 실패 \n");
+	else
+		printf("탐색에 성공한 키의 값: %d \n", BSTGetNodeData(sNode));
+
+	sNode = BSTSearch(bstRoot, 7);
+	if (sNode == NULL)
+		printf("탐색 실패 \n");
+	else
+		printf("탐색에 성공한 키의 값: %d \n", BSTGetNodeData(sNode));
 
 	return 0;
-
-	// 예상 출력
-	// 2
-	// 4
 }
