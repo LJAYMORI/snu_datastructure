@@ -2,6 +2,8 @@
 #include<stdio.h>
 #include "BinaryTree.h"
 
+void ShowIntData(int data);
+
 int main(void)
 {
     BTreeNode * bt1 = MakeBTreeNode();
