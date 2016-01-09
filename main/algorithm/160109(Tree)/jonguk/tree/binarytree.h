@@ -1,6 +1,9 @@
 #ifndef __BINARY_TREE3_H__
 #define __BINARY_TREE3_H__
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef int BTData;
 
 typedef struct _bTreeNode
