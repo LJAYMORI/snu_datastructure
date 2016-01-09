@@ -1,5 +1,3 @@
-
-#include<stdio.h>
 #include "BinaryTree.h"
 
 int main(void)
@@ -15,7 +13,7 @@ int main(void)
     SetData(bt4, 4);
 
     MakeLeftSubTree(bt1, bt2);
-    MakeLeftSubTree(bt1, bt3);
+    MakeRightSubTree(bt1, bt3);
     MakeLeftSubTree(bt2, bt4);
 
     printf("%d \n", GetData(GetLeftSubTree(bt1)));
