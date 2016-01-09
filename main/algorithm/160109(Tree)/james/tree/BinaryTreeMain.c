@@ -1,30 +1,112 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "binarytree.h"
 
-#include<stdio.h>
-#include "BinaryTree.h"
-
-int main(void)
+BTreeNode * MakeBTreeNode(void)
 {
-    BTreeNode * bt1 = MakeBTreeNode();
-    BTreeNode * bt2 = MakeBTreeNode();
-    BTreeNode * bt3 = MakeBTreeNode();
-    BTreeNode * bt4 = MakeBTreeNode();
+	BTreeNode * node = (BTreeNode*)malloc(sizeof(BTreeNode));
 
-    SetData(bt1, 1);
-    SetData(bt2, 2);
-    SetData(bt3, 3);
-    SetData(bt4, 4);
+	node->left = NULL;
+	node->right = NULL;
+	return node;
+}
 
-    MakeLeftSubTree(bt1, bt2);
-    MakeLeftSubTree(bt1, bt3);
-    MakeLeftSubTree(bt2, bt4);
+BTData GetData(BTreeNode * node)
+{
+	return node->data;
+}
 
-    printf("%d \n", GetData(GetLeftSubTree(bt1)));
+void SetData(BTreeNode * node, BTData data)
+{
+	node->data = data;
+}
 
-    printf("%d \n", GetData(GetLeftSubTree(GetLeftSubTree(bt1))));
+BTreeNode * GetLeftSubTree(BTreeNode * node)
+{
+	return node->left;
+}
 
-    return 0;
+BTreeNode * GetRightSubTree(BTreeNode * node)
+{
+	return node->right;
+}
 
-    // 예상 출력
-    // 2
-    // 4
+void MakeLeftSubTree(BTreeNode * parent, BTreeNode * sub)
+{
+	if (parent->left != NULL)
+		free(parent->left);
+
+	parent->left = sub;
+}
+
+void MakeRightSubTree(BTreeNode * parent, BTreeNode * sub)
+{
+	if (parent->right != NULL)
+		free(parent->right);
+
+	parent->right = sub;
+}
+
+void PreorderTraverse(BTreeNode * node, VisitFuncPtr vptr)
+{
+	if (node == NULL)
+		return;
+
+	vptr(node->data);
+	PreorderTraverse(node->left, vptr);
+	PreorderTraverse(node->right, vptr);
+}
+
+void InorderTraverse(BTreeNode * node, VisitFuncPtr vptr)
+{
+	if (node == NULL)
+		return;
+
+	InorderTraverse(node->left, vptr);
+	vptr(node->data);
+	InorderTraverse(node->right, vptr);
+}
+
+void PostorderTraverse(BTreeNode * node, VisitFuncPtr vptr)
+{
+	if (node == NULL)
+		return;
+
+	PostorderTraverse(node->left, vptr);
+	PostorderTraverse(node->right, vptr);
+	vptr(node->data);
+}
+
+BTreeNode * RemoveLeftSubTree(BTreeNode * node)
+{
+	BTreeNode * delNode;
+
+	if (node != NULL) 
+	{
+		delNode = node->left;
+		node->left = NULL;
+	}
+	return delNode;
+}
+
+BTreeNode * RemoveRightSubTree(BTreeNode * node)
+{
+	BTreeNode * delNode;
+
+	if (node != NULL) 
+	{
+		delNode = node->right;
+		node->right = NULL;
+	}
+	return delNode;
+}
+
+void ChangeLeftSubTree(BTreeNode * parent, BTreeNode * sub)
+{
+	parent->left = sub;
+}
+
+void ChangeRightSubTree(BTreeNode * parent, BTreeNode * sub)
+{
+	parent->right = sub;
 }
