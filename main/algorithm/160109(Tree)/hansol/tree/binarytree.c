@@ -52,11 +52,10 @@ void PostorderTraverse(BTreeNode* bt, VisitFuncPtr action) {
 }
 
 BTreeNode* BTreeSearch(BTreeNode* bt, BTData target) {
+	if(bt == NULL)
+		return NULL;
 	if(bt->data == target)
 		return bt;
-
-	if(bt->left != NULL)
-		BTreeSearch(bt->left, target);
-	if(bt->right != NULL)
-		BTreeSearch(bt->right, target);
+	BTreeSearch(bt->left, target);
+	BTreeSearch(bt->right, target);
 }
